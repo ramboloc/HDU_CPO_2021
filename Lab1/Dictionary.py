@@ -5,7 +5,7 @@ class BSTNode:
     """
 
     def __init__(self, key, value):
-        self.key = str(key)
+        self.key = key
         self.data = value
         self.left = None
         self.right = None
@@ -70,12 +70,11 @@ class Dictionary:
         """
         get value by key
         """
-        key = str(key)
         cur_node = self._root
         while cur_node:
-            if key < cur_node.key:
+            if compare(cur_node.key,key) ==1:
                 cur_node = cur_node.left
-            elif key > cur_node.key:
+            elif compare(cur_node.key,key)==2:
                 cur_node = cur_node.right
             else:
                 return cur_node.data
@@ -85,25 +84,23 @@ class Dictionary:
         """
         put V<key,value> to dictionary
         """
-        key = str(key)
+        #key = str(key)
         if self.is_empty():
             self._root = BSTNode(key, value)
             self._all_key.append(key)
         cur_node = self._root
         while True:
-            if key < cur_node.key:
+            if compare(cur_node.key, key) == 1:
                 if cur_node.left is None:
                     cur_node.left = BSTNode(key, value)
                     self._all_key.append(key)
                 cur_node = cur_node.left
-
-            elif key > cur_node.key:
+            elif compare(cur_node.key, key) == 2:
                 if cur_node.right is None:
                     cur_node.right = BSTNode(key, value)
                     self._all_key.append(key)
                 cur_node = cur_node.right
             else:
-
                 cur_node.data = value
                 return
 
@@ -111,7 +108,6 @@ class Dictionary:
         """
         remove V by key from dictionary
         """
-        key = str(key)
         p, q = None, self._root
         # if the tree is None, return
         if not q:
@@ -119,7 +115,7 @@ class Dictionary:
         # q is the node we need to find, q is the parent node of q
         while q and q.key != key:
             p = q
-            if key < q.key:
+            if compare(q.key,key)==1:
                 q = q.left
             else:
                 q = q.right
@@ -269,10 +265,8 @@ if __name__ == '__main__':
 
     dictionary = Dictionary()
     dictionary3 = Dictionary()
-    print(dictionary.size())
     for i in range(len(lis)):
         dictionary.put(lis[i][0], lis[i][1])
-
     # test for init
     print(dictionary.to_list())
     print(dictionary.get("1485"))
@@ -295,4 +289,3 @@ if __name__ == '__main__':
     # Traversal dictionary
     print(dictionary.to_list())
     print(dictionary3.to_list())
-    dictionary4 = dictionary.concat(dictionary3)
