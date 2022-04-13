@@ -104,6 +104,27 @@ class TestMutableDictionary(unittest.TestCase):
         dictionary_test.put(3, 33)
         self.assertEqual(dictionary_test.reduce(add_value, initial_state=0), 44)
 
+    def test_empty(self):
+        dictionary_test = Dictionary()
+        dictionary_test.put(1, 11)
+        dictionary_test.put(2, 22)
+        dictionary_test.put(3, 33)
+        dictionary_test.empty()
+        self.assertEqual(dictionary_test.to_list(), [])
+
+    def test_concat(self):
+        dictionary_test = Dictionary()
+        dictionary_test2 = Dictionary()
+        test_data = [[], [[1, 11]]]
+        dictionary_test.from_list(test_data[0])
+        dictionary_test2.from_list(test_data[1])
+        dictionary_test.concat(dictionary_test2)
+        self.assertEqual(dictionary_test.to_list(), [[1, 11]])
+        dictionary_test.empty()
+        dictionary_test.from_list(test_data[0])
+        dictionary_test2.concat(dictionary_test)
+        self.assertEqual(dictionary_test2.to_list(), [[1, 11]])
+
 
 if __name__ == '__main__':
     unittest.main()
