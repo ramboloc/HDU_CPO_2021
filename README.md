@@ -1,14 +1,18 @@
-# GROUP-NAME - lab NUMBER - variant NUMBER
+# SA Spade A - lab 1 - variant 6
 
-This is an example project which demonstrates project structure and necessary
-CI checks. It is not the best structure for real-world projects, but good
-enough for educational purposes.
+## laboratory work description
+
+- `Dictionary based on binary-tree`
+
+   - You need to check that your implementation correctly works with None value
+   - You need to implement functions/methods for getting/setting value by key.
+
 
 ## Project structure
 
-- `foo.py` -- implementation of `Foo` class with `hello` and `add` features.
-   Stateless.
-- `foo_test.py` -- unit and PBT tests for `Foo`.
+- `Dictionary.py` -- implementation of `Dictionary` class with `set` , `get` , `remove` , `to_list` , `size` , `filter` , `member` ,`map` and `reduce` features.
+
+- `mutable_test.py` -- unit and PBT tests for `Dictionary`.
 
 ## Features
 
@@ -16,7 +20,8 @@ enough for educational purposes.
 
 ## Contribution
 
-- Aleksandr Penskoi (EMAIL) -- all work.
+- Wu Bin -- all programming work.
+- Li Jingwen -- writing README.md
 
 ## Changelog
 
@@ -29,4 +34,5 @@ enough for educational purposes.
 
 ## Design notes
 
-- ...
+- The key will be stored as a string in the dictionary.
+- The input key will also be converted into a string during query.
