@@ -12,11 +12,19 @@
 
 - `Dictionary.py` -- implementation of `Dictionary` class with `set` , `get` , `remove` , `to_list` , `size` , `filter` , `member` ,`map` and `reduce` features.
 
-- `mutable_test.py` -- unit and PBT tests for `Dictionary`.
+- `mutable_test.py` -- unit tests for `Dictionary`.
 
 ## Features
 
-- PBT: `test_add_commutative`
+- `set` : put V<key,value> to dictionary.
+- `get` : get value by key.
+- `remove` : remove V by key from dictionary
+- `from_list` and `to_list` : store all the values in the dictionary in the linked list.
+- `size` : get list's length.
+- `filter` : filter the diction by judge function.
+- `member` : query whether the key exists in the dictionary.
+- `map` : use function f to process all value in the dictionary.
+- `reduce` : use function f to process all value in the dictionary.
 
 ## Contribution
 
