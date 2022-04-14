@@ -2,9 +2,8 @@
 
 ## Project structure
 
-- `Dictionary.py` -- implementation of `Dictionary` class with `set` , `get`, `remove` , `to_list` ,
-`size` , `filter` , `member` ,`map` and `reduce` features.
-
+- `Dictionary.py` -- implementation of `Dictionary` class with `set` , `get`,
+`remove` ,`to_list` ,`size` , `filter` , `member` ,`map` and `reduce` features.
 - `mutable_test.py` -- unit tests for `Dictionary`.
 
 ## Features
@@ -40,5 +39,5 @@
 
 ## Design notes
 
-- The elements contained in the list converted from the dictionary should be key value pairs.
+- The elements contained in the list converted by dictionary should be key value pairs.
 - The input of from_list should also be a list which elements are key value pairs.
