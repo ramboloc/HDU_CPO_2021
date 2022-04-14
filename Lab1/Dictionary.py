@@ -84,7 +84,6 @@ class Dictionary:
         """
         put V<key,value> to dictionary
         """
-        # key = str(key)
         if self.is_empty():
             self._root = BSTNode(key, value)
             self._all_key.append(key)

@@ -1,8 +1,4 @@
-import types
 import unittest
-from hypothesis import given, settings
-import hypothesis.strategies as st
-from mutable import *
 
 from Dictionary import *
 
