@@ -72,9 +72,9 @@ class Dictionary:
         """
         cur_node = self._root
         while cur_node:
-            if compare(cur_node.key,key) ==1:
+            if compare(cur_node.key, key) == 1:
                 cur_node = cur_node.left
-            elif compare(cur_node.key,key)==2:
+            elif compare(cur_node.key, key) == 2:
                 cur_node = cur_node.right
             else:
                 return cur_node.data
@@ -84,7 +84,7 @@ class Dictionary:
         """
         put V<key,value> to dictionary
         """
-        #key = str(key)
+        # key = str(key)
         if self.is_empty():
             self._root = BSTNode(key, value)
             self._all_key.append(key)
@@ -115,7 +115,7 @@ class Dictionary:
         # q is the node we need to find, q is the parent node of q
         while q and q.key != key:
             p = q
-            if compare(q.key,key)==1:
+            if compare(q.key, key) == 1:
                 q = q.left
             else:
                 q = q.right
