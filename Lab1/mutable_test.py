@@ -3,11 +3,6 @@ import unittest
 from Dictionary import *
 
 
-def judge(obj):
-    """this function shows whether it is a number """
-    return type(obj) is int
-
-
 def f(x):
     """"this function transform the type of x to str """
     return str(x)
