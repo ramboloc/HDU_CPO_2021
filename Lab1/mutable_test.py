@@ -57,11 +57,11 @@ class TestMutableDictionary(unittest.TestCase):
 
     def test_to_list(self):
         dictionary_test = Dictionary()
+        data = [[1, 11], [2, 22], [3, 33]]
         self.assertEqual(dictionary_test.to_list(), [])
-        dictionary_test.put(1, 11)
-        dictionary_test.put(2, 22)
-        dictionary_test.put(3, 33)
-        self.assertEqual(dictionary_test.to_list(), [[1, 11], [2, 22], [3, 33]])
+        for e in data:
+            dictionary_test.put(e[0], e[1])
+        self.assertEqual(dictionary_test.to_list(), data)
 
     def test_from_list(self):
         test_data = [[], [[1, 11]], [[1, 11], [2, 21]]]
@@ -98,7 +98,8 @@ class TestMutableDictionary(unittest.TestCase):
         dictionary_test.put(1, 11)
         dictionary_test.put(2, "22")
         dictionary_test.put(3, 33)
-        self.assertEqual(dictionary_test.reduce(add_value, initial_state=0), 44)
+        result = dictionary_test.reduce(add_value, initial_state=0)
+        self.assertEqual(result, 44)
 
     def test_empty(self):
         dictionary_test = Dictionary()
