@@ -5,8 +5,7 @@
 * `Dictionary based on binary-tree`
   + You need to check that your implementation correctly works with None value
   + You need to implement functions/methods for getting/setting value by key.
-
-
+  
 ## Project structure
 
 * `Dictionary.py` -- implementation of `Dictionary` class with `set` , `get` , `remove` , `to_list` , `size` , `filter` , `member` ,`map` and `reduce` features.

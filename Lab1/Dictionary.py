@@ -252,4 +252,3 @@ class Dictionary:
             for kv in ls:
                 self.put(kv[0], kv[1])
             return dic
-
