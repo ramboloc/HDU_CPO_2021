@@ -259,7 +259,7 @@ class Dictionary:
 
 
 if __name__ == '__main__':
-    lis = [["1485", 1], [3, 2], [7, 3], [2, 4], [4, 5], [6, 6], [8, 7], [10, 8], [9, 9], [11, 10]]
+    lis = [["1485", 1], [3, 2], [7, 3], [2, 4], [4, 5], [6, 6]]
     dictionary = Dictionary()
     dictionary3 = Dictionary()
     for i in range(len(lis)):
