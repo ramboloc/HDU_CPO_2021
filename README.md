@@ -4,8 +4,8 @@
 
 * `Dictionary based on binary-tree`
 
-   -  You need to check that your implementation correctly works with None value
-   -  You need to implement functions/methods for getting/setting value by key.
+   -   You need to check that your implementation correctly works with None value
+   -   You need to implement functions/methods for getting/setting value by key.
 
 
 ## Project structure
@@ -34,11 +34,11 @@
 ## Changelog
 
 * 29.03.2022 - 2 
-  - Add test coverage.
+  -  Add test coverage.
 * 29.03.2022 - 1
-  - Update README. Add formal sections.
+  -  Update README. Add formal sections.
 * 29.03.2022 - 0
-  - Initial
+  -  Initial
 
 ## Design notes
 

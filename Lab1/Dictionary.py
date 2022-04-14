@@ -263,7 +263,7 @@ if __name__ == '__main__':
     dictionary = Dictionary()
     dictionary3 = Dictionary()
     for i in lis:
-        dictionary.put(i[0], i[1])
+        dictionary.put(i.pop(0), i.pop(1))
     # test for init
     print(dictionary.to_list())
     print(dictionary.get("1485"))
