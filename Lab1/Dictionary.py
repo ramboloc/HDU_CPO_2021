@@ -258,3 +258,31 @@ class Dictionary:
 # the input key will also be  converted into a string during query
 
 
+if __name__ == '__main__':
+    lis = [["1485", 1], [3, 2], [7, 3], [2, 4], [4, 5], [6, 6]]
+    dictionary = Dictionary()
+    dictionary3 = Dictionary()
+    for i in lis:
+        dictionary.put(i[0], i[1])
+    # test for init
+    print(dictionary.to_list())
+    print(dictionary.get("1485"))
+    print(dictionary.get(1485))
+    print("get a nonexistent value 56 to test:" + str(dictionary.get(56)))
+    # test for put
+    dictionary.put(99, "put-value1")
+    dictionary.put(66, "put-value2")
+    dictionary.put(45, "put-value3")
+    print("get(99):" + dictionary.get(99))
+    print("get(66):" + dictionary.get(66))
+    print("get(45):" + dictionary.get(45))
+    # test for remove
+    dictionary.remove(99)
+    print("after remove key 99, the value get(99):" + str(dictionary.get(99)))
+    # test whether the put can be overwritten
+    print("the old value get(66):" + str(dictionary.get(66)))
+    dictionary.put(66, "new-values")
+    print("the new value get(66):" + str(dictionary.get(66)))
+    # Traversal dictionary
+    print(dictionary.to_list())
+    print(dictionary3.to_list())
