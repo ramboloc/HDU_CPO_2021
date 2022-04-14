@@ -23,8 +23,8 @@
 - `size` : get list's length.
 - `filter` : filter the diction by judge function.
 - `member` : query whether the key exists in the dictionary.
-- `map` : use function f to process all value in the dictionary.
-- `reduce` : use function f to process all value in the dictionary.
+- `map` : use function f to map all value in the dictionary.
+- `reduce` : use function f to process all value to build a return value in the dictionary.
 
 ## Contribution
 
