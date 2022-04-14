@@ -50,6 +50,8 @@ class Dictionary:
         :rtype: kv
         """
         self._index = self._index + 1
+        if self._index >= len(self._all_key):
+            return None
         return self.get(self._all_key[self._index])
 
     def hasNext(self):

@@ -2,7 +2,8 @@
 
 ## Project structure
 
-- `Dictionary.py` -- implementation of `Dictionary` class with `set` , `get` , `remove` , `to_list` , `size` , `filter` , `member` ,`map` and `reduce` features.
+- `Dictionary.py` -- implementation of `Dictionary` class with `set` , `get`, `remove` , `to_list` ,
+`size` , `filter` , `member` ,`map` and `reduce` features.
 
 - `mutable_test.py` -- unit tests for `Dictionary`.
 
@@ -10,13 +11,18 @@
 
 - `set` : put V<key,value> to dictionary.
 - `get` : get value by key.
-- `remove` : remove V by key from dictionary
-- `from_list` and `to_list` : store all the values in the dictionary in the linked list.
-- `size` : get list's length.
+- `next` : get next value in dictionary
+- `next` : judge whether next value is exist.
+- `remove` : remove V by key from dictionary.
+- `to_list` : convert dictionary to list.
+- `from_list` : convert list to dictionary.
+- `size` : get the number of storage elements in dictionary.
 - `filter` : filter the diction by judge function.
 - `member` : query whether the key exists in the dictionary.
 - `map` : use function f to map all value in the dictionary.
 - `reduce` : use function f to process all value to build a return value in the dictionary.
+- `empty` : clear all elements in the dictionary.
+- `concat` : merge two dictionaries into one.
 
 ## Contribution
 
@@ -34,5 +40,5 @@
 
 ## Design notes
 
-- The key will be stored as a string in the dictionary.
-- The input key will also be converted into a string during query.
+- The elements contained in the list converted from the dictionary should be key value pairs.
+- The input of from_list should also be a list which elements are key value pairs.
