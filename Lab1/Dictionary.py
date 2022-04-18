@@ -65,8 +65,7 @@ class Dictionary:
     def is_empty(self):
         return self._root is None
 
-        # Find value according to key value
-
+    # Find value according to key value
     def get(self, key):
         """
         get value by key
