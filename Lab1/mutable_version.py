@@ -143,7 +143,7 @@ class Dictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node=None) -> list:
+    def _mid_order(self, node=None):
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
