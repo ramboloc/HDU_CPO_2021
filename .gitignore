@@ -42,12 +42,12 @@ htmlcov/
 .tox/
 .nox/
 .coverage
-#.coverage.*
+.coverage.*
 .cache
 nosetests.xml
 coverage.xml
 *.cover
-*.py,cover
+Lab1.*.py,cover
 .hypothesis/
 .pytest_cache/
 
