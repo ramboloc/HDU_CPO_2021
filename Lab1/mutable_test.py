@@ -141,7 +141,8 @@ class TestMutableDictionary(unittest.TestCase):
         dictionary_test.empty()
         self.assertEqual(dictionary_test.to_list(), [])
 
-    @given(st.lists(st.tuples(st.integers(), st.integers())), st.lists(st.tuples(st.integers(), st.integers())))
+    @given(st.lists(st.tuples(st.integers(), st.integers())),
+           st.lists(st.tuples(st.integers(), st.integers())))
     def test_concat(self, list1, list2):
         dictionary_test = Dictionary()
         dictionary_test2 = Dictionary()
