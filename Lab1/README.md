@@ -55,7 +55,8 @@
   you are starting by outlining all the conditions
   you are subjecting the code to and
   what outputs you'd expect from that.
-  - disadvantages -- For data structures and black box algorithms unit tests would be perfect,
+  - disadvantages -- For data structures and black box
+  algorithms unit tests would be perfect,
    but for algorithms that tend to be changed,
    tweaked or fine tuned,
    this can cause a big time investment that
@@ -63,5 +64,7 @@
    So use it when you think it actually fits the system and
    don't force the design to fit to TDD.
 - PBT tests:
-  - advantages -- PBT can significantly improve test coverage.
-  - disadvantages -- It is not a replacement for unit tests at all because Property-based testing is not enough.
+  - advantages -- PBT can significantly
+  improve test coverage.
+  - disadvantages -- It is not a replacement for
+  unit tests at all because Property-based testing is not enough.
