@@ -1,10 +1,11 @@
 # SA Spade A - lab 1 - variant 6
 
 ## Laboratory work description
+
 - `Dictionary based on binary-tree`
   - You need to check that your implementation correctly works with Nonevalue.
   - You need to implement functions/methods for getting/setting value by key.
- 
+
 ## Project structure
 
 - `Dictionary.py` -- implementation of `Dictionary` class.
@@ -48,8 +49,17 @@
 - The function to_list will return key value pairs as a tuple.
 - The input of from_list should also be a list which elements are key value pairs.
 - unit tests:
-  - advantages -- Unit Tests help you really understand the design of the code you are working on. Instead of writing code to do something, you are starting by outlining all the conditions you are subjecting the code to and what outputs you'd expect from that.
-  - disadvantages -- For data structures and black box algorithms unit tests would be perfect, but for algorithms that tend to be changed, tweaked or fine tuned, this can cause a big time investment that one might claim is not justified. So use it when you think it actually fits the system and don't force the design to fit to TDD.
+  - advantages -- Unit Tests help you really understand the design of the code you are working on. 
+  Instead of writing code to do something, 
+  you are starting by outlining all the conditions 
+  you are subjecting the code to and what outputs you'd expect from that.
+  - disadvantages -- For data structures and black box algorithms unit tests would be perfect,
+   but for algorithms that tend to be changed, 
+   tweaked or fine tuned, 
+   this can cause a big time investment that 
+   one might claim is not justified. 
+   So use it when you think it actually fits the system and 
+   don't force the design to fit to TDD.
 - PBT tests:
-  - advantages -- PBT can significantly improve test coverage.  
-  - disadvantages -- It is not a replacement for unit tests at all because Property-based testing is not enough. 
+  - advantages -- PBT can significantly improve test coverage.
+  - disadvantages -- It is not a replacement for unit tests at all because Property-based testing is not enough.
