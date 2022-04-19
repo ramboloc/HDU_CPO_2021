@@ -169,7 +169,6 @@ class Dictionary:
             return list(res)
 
     def from_list(self, e):
-        assert type(e) is list
         if e:
             for element in e:
                 self.put(element[0], element[1])

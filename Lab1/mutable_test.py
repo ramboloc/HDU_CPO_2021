@@ -88,14 +88,14 @@ class TestMutableDictionary(unittest.TestCase):
 
     def test_to_list(self):
         dictionary_test = Dictionary()
-        data = [[1, 11], [2, 22], [3, 33]]
+        data = [(1, 11), (2, 22), (3, 33)]
         self.assertEqual(dictionary_test.to_list(), [])
         for e in data:
             dictionary_test.put(e[0], e[1])
         self.assertEqual(dictionary_test.to_list(), data)
 
     def test_from_list(self):
-        test_data = [[], [[1, 11]], [[1, 11], [2, 21]]]
+        test_data = [[], [(1, 11)], [(1, 11), (2, 21)]]
         for e in test_data:
             dictionary_test = Dictionary()
             dictionary_test.from_list(e)
@@ -107,7 +107,7 @@ class TestMutableDictionary(unittest.TestCase):
         dictionary_test.put(2, "22")
         dictionary_test.put(3, 33)
         dictionary_test.filter(judge)
-        self.assertEqual(dictionary_test.to_list(), [[1, 11], [3, 33]])
+        self.assertEqual(dictionary_test.to_list(), [(1, 11), (3, 33)])
 
     def test_member(self):
         dictionary_test = Dictionary()
@@ -122,7 +122,7 @@ class TestMutableDictionary(unittest.TestCase):
         dictionary_test.put(1, 11)
         dictionary_test.put(2, 22)
         dictionary_test.map(f)
-        self.assertEqual(dictionary_test.to_list(), [[1, "11"], [2, "22"]])
+        self.assertEqual(dictionary_test.to_list(), [(1, "11"), (2, "22")])
 
     def test_reduce(self):
         dictionary_test = Dictionary()
