@@ -39,4 +39,6 @@
 ## Design notes
 
 - The elements in the list converted by dictionary should be key value pairs.
+- The key value pairs could be a list like [key,value] or tuple(key,value).
+- The function to_list will return key value pairs as a tuple.
 - The input of from_list should also be a list which elements are key value pairs.

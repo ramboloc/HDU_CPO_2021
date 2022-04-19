@@ -15,7 +15,7 @@ def judge(obj):
     return type(obj) is int
 
 
-def compare(a, b):
+def compare(a, b) -> int:
     if type(a) == type(b):
         if a > b:
             return 1
@@ -44,7 +44,7 @@ class Dictionary:
         self._all_key = []
         self._index = -1
 
-    def next(self):
+    def next(self) -> object:
         """
         @return the next key
         :rtype: kv
@@ -54,7 +54,7 @@ class Dictionary:
             return None
         return self.get(self._all_key[self._index])
 
-    def hasNext(self):
+    def hasNext(self) -> bool:
         """
         @return whether we have a next key
         :rtype: bool
@@ -62,7 +62,7 @@ class Dictionary:
         return self._index < len(self._all_key)
 
     # Judge whether the bit is empty
-    def is_empty(self):
+    def is_empty(self) -> bool:
         return self._root is None
 
     # Find value according to key value
@@ -101,7 +101,7 @@ class Dictionary:
                 cur_node = cur_node.right
             else:
                 cur_node.data = value
-                return
+                break
 
     def remove(self, key):
         """
@@ -143,7 +143,7 @@ class Dictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node=None):
+    def _mid_order(self, node=None) -> list:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
@@ -159,13 +159,13 @@ class Dictionary:
                 yield item
 
     # Store all the values in the dictionary in the linked list
-    def to_list(self):
+    def to_list(self) -> list:
         res = []
         if self._root is None:
             return []
         else:
             for node in self._mid_order():
-                res.append([node.key, node.data])
+                res.append((node.key, node.data))
             return list(res)
 
     def from_list(self, e):
@@ -174,10 +174,10 @@ class Dictionary:
             for element in e:
                 self.put(element[0], element[1])
 
-    def size(self):
+    def size(self) -> int:
         return len(self.to_list())
 
-    def filter(self, judge):
+    def filter(self, f):
         """filter the diction by judge function"""
         stack = []
         node = self._root
@@ -187,13 +187,13 @@ class Dictionary:
                 stack.append(node)
                 node = node.left
             node = stack.pop()
-            if not judge(node.data):
+            if not f(node.data):
                 result.append(node.key)
             node = node.right
         for key in result:
             self.remove(key)
 
-    def member(self, key):
+    def member(self, key) -> bool:
         """
         Query whether the key exists in the dictionary
         :param key:
@@ -253,3 +253,4 @@ class Dictionary:
             for kv in ls:
                 self.put(kv[0], kv[1])
             return dic
+
