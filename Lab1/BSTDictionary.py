@@ -30,7 +30,7 @@ def compare(a, b) -> int:
             return 2
 
 
-class Dictionary:
+class BSTDictionary:
     """
     Binary sort tree based on bst-node class.
     """
@@ -241,7 +241,7 @@ class Dictionary:
         self._all_key = []
 
     def concat(self, dic):
-        assert type(dic) is Dictionary
+        assert type(dic) is BSTDictionary
         if self.size() > dic.size():
             ls = dic.to_list()
             for kv in ls:
