@@ -17,7 +17,7 @@ jobs:
       # run tests
       - run: pip install pytest coverage
       - run: coverage run -m pytest --verbose
-      - run: coverage report Lab1/*.py
+      - run: coverage report *.py
 
       # code style checks
       - run: pip install pycodestyle
