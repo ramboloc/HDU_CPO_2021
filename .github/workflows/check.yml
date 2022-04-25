@@ -5,30 +5,36 @@ on: [push]
 jobs:
 
   python:
-    name: Run tests and lint python
+    name: Run tests and check python code
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      # prepare environment
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v3
-      - run: pip install -r requirements.txt
 
-      # run tests
-      - run: pip install pytest coverage
-      - run: coverage run -m pytest --verbose
-      - run: coverage report *.py
+      - name: Install dependency
+        run: pip install -r requirements.txt
 
-      # code style checks
-      - run: pip install pycodestyle
-      - run: pycodestyle .
+      - name: Install development environment
+        run: pip install pytest coverage pycodestyle pyflakes mypy
+      
+      - name: Run tests and show coverage report
+        run: |
+          coverage run -m pytest --verbose
+          coverage report *.py
+      - name: Check code style
+        run: pycodestyle .
+
+      - name: Check python file for typical errors
+        run: pyflakes .
 
       # type annotation checks
-      - run: pip install mypy
-      - run: mypy .
+      - name: Type checks
+        run: mypy .
 
-      # if you pretend to make a typed version of your program, you should uncomment this line:  
-      # - run: mypy . --strict
+      # if you pretend to make a typed version of your program, you should uncomment these lines:  
+      # - name: Strict type checks 
+      #   run: mypy . --strict
 
   markdown:
     name: Lint markdown
