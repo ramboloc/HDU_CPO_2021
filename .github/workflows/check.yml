@@ -22,6 +22,7 @@ jobs:
         run: |
           coverage run -m pytest --verbose
           coverage report *.py
+
       - name: Check code style
         run: pycodestyle .
 
