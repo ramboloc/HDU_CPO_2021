@@ -22,7 +22,7 @@ def list_to_kv_list(list1):
     Convert a list containing two tuples into kV we require_ list
     kv_ List shall have the following characteristics:
     1. All elements are binary
-    2. All element key values are not duplicate
+    2. All element key values are not duplicate.
     :param list1:
     :return:
     """
