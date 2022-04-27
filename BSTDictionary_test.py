@@ -2,7 +2,7 @@ import unittest
 from hypothesis import given
 import hypothesis.strategies as st
 import BSTDictionary
-from  BSTDictionary import *
+from BSTDictionary import *
 
 
 def f(x):
