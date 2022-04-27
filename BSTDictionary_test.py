@@ -1,8 +1,8 @@
 import unittest
 from hypothesis import given
 import hypothesis.strategies as st
-import BSTDictionary
-from BSTDictionary import *
+import BSTDictionary as td
+from BSTDictionary import BSTDictionary
 
 
 def f(x):
@@ -105,7 +105,7 @@ class TestMutableDictionary(unittest.TestCase):
         dictionary_test.put(1, 11)
         dictionary_test.put(2, "22")
         dictionary_test.put(3, 33)
-        dictionary_test.filter(judge)
+        dictionary_test.filter(td.judge)
         self.assertEqual(dictionary_test.to_list(), [(1, 11), (3, 33)])
 
     def test_member(self):
