@@ -106,13 +106,24 @@ class TestBSTDictionary(unittest.TestCase):
             new_list = el.list_merge(list2, list1)
         new_list = el.list_to_kv_list(new_list)
         dictionary_test.from_list(list1)
+        dictionary_test.from_list(list2)
+        new_dic = dictionary_test.concat(dictionary_test2)
+        self.assertEqual(new_dic.to_list(), new_list)
+
+    @given(st.lists(st.tuples(st.integers(), st.integers())),
+           st.lists(st.tuples(st.integers(), st.integers())))
+    def test_monoid(self, list1, list2):
+        dictionary_test = BSTDictionary()
+        dictionary_test2 = BSTDictionary()
+        dictionary_test.from_list(list1)
         dictionary_test2.from_list(list2)
-        dictionary_test.concat(dictionary_test2)
-        self.assertEqual(dictionary_test.to_list(), new_list)
+        dictionary_test3 = dictionary_test.concat(dictionary_test2)
+        str1 = dictionary_test3.to_list()
         dictionary_test.empty()
         dictionary_test.from_list(list1)
-        dictionary_test2.concat(dictionary_test)
-        self.assertEqual(dictionary_test2.to_list(), new_list)
+        dictionary_test3 = dictionary_test2.concat(dictionary_test)
+        str2 = dictionary_test3.to_list()
+        self.assertEqual(str1, str2)
 
 
 if __name__ == '__main__':

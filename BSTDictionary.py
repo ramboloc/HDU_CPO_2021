@@ -1,4 +1,3 @@
-import datetime
 class BSTNode:
     """
     Define a binary tree node class.
@@ -44,7 +43,6 @@ class BSTDictionary:
         self._root = None
         self._all_key = []
         self._index = -1
-        self.ctime = datetime.datetime.now()
 
     def next(self) -> object:
         """
@@ -170,6 +168,15 @@ class BSTDictionary:
                 res.append((node.key, node.data))
             return list(res)
 
+    def to_key_list(self):
+        res = []
+        if self._root is None:
+            return []
+        else:
+            for node in self._mid_order():
+                res.append(node.key)
+            return list(res)
+
     def from_list(self, e):
         if e:
             for element in e:
@@ -244,14 +251,31 @@ class BSTDictionary:
 
     def concat(self, dic):
         assert type(dic) is BSTDictionary
+        self_key = []
+        concat_key = []
+        flag = 0
+        while len(self_key) > 0:
+            if self_key.pop() < concat_key.pop():
+                flag = 1
+                break
         if self.size() > dic.size():
             ls = dic.to_list()
             for kv in ls:
                 self.put(kv[0], kv[1])
             return self
-        else:
+        elif self.size() < dic.size():
+            ls = self.to_list()
+            for kv in ls:
+                dic.put(kv[0], kv[1])
+            return dic
+        elif self.size() < dic.size() and flag == 1:
             ls = dic.to_list()
             for kv in ls:
                 self.put(kv[0], kv[1])
+            return self
+        else:
+            ls = self.to_list()
+            for kv in ls:
+                dic.put(kv[0], kv[1])
             return dic
 
