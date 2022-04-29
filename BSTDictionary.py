@@ -1,3 +1,4 @@
+import datetime
 class BSTNode:
     """
     Define a binary tree node class.
@@ -43,6 +44,7 @@ class BSTDictionary:
         self._root = None
         self._all_key = []
         self._index = -1
+        self.ctime = datetime.datetime.now()
 
     def next(self) -> object:
         """
@@ -252,3 +254,4 @@ class BSTDictionary:
             for kv in ls:
                 self.put(kv[0], kv[1])
             return dic
+
