@@ -113,6 +113,12 @@ class TestBSTDictionary(unittest.TestCase):
     @given(st.lists(st.tuples(st.integers(), st.integers())),
            st.lists(st.tuples(st.integers(), st.integers())))
     def test_monoid(self, list1, list2):
+        """
+        the function use to test for monoid properties
+        :param list1:
+        :param list2:
+        :return:
+        """
         dictionary_test = BSTDictionary()
         dictionary_test2 = BSTDictionary()
         dictionary_test.from_list(list1)
