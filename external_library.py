@@ -1,10 +1,19 @@
 def f(x):
-    """"this function transform the type of x to str """
+    """
+    this function transform the type of x to str
+    :param x:
+    :return:
+    """
     return str(x)
 
 
 def add_value(obj, value):
-    """this function add all value if type of value is int """
+    """
+    his function add all value if type of value is int
+    :param obj:
+    :param value:
+    :return:
+    """
     if type(value) is int:
         return obj + value
     else:
@@ -38,7 +47,12 @@ def list_to_kv_list(list1):
 
 
 def list_merge(lis1, lis2):
-    """merge tow list to one according to list length"""
+    """
+    merge tow list to one according to list length
+    :param lis1:
+    :param lis2:
+    :return:
+    """
     for i in lis2:
         lis1.append(i)
     return lis1
