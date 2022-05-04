@@ -58,7 +58,7 @@ class BSTDictionary:
         self._root = None
         self._all_key = []
         self._index = -1
- 
+
     def next(self) -> object:
         """
         return the next key
