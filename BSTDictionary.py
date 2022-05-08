@@ -4,33 +4,18 @@ class BSTNode:
     """
 
     def __init__(self, key, value):
-        """
-        this function initialize a binary tree
-        :param key:
-        :param value:
-        """
         self.key = key
         self.data = value
         self.left = None
         self.right = None
 
 
-def judge(obj) -> bool:
-    """
-    this function shows whether it is a number
-    :param obj:
-    :return:
-    """
+def judge(obj):
+    """this function shows whether it is a number """
     return type(obj) is int
 
 
 def compare(a, b) -> int:
-    """
-    this function compares a with b
-    :param a:
-    :param b:
-    :return:
-    """
     if type(a) == type(b):
         if a > b:
             return 1
@@ -61,7 +46,7 @@ class BSTDictionary:
 
     def next(self) -> object:
         """
-        return the next key
+        @return the next key
         :rtype: kv
         """
         self._index = self._index + 1
@@ -71,24 +56,19 @@ class BSTDictionary:
 
     def hasNext(self) -> bool:
         """
-        return whether we have a next key
+        @return whether we have a next key
         :rtype: bool
         """
         return self._index < len(self._all_key)
 
+    # Judge whether the bit is empty
     def is_empty(self) -> bool:
-        """
-        return whether the bit is empty
-        :rtype: bool
-        """
         return self._root is None
 
     # Find value according to key value
     def get(self, key):
         """
         get value by key
-        :param key:
-        :return:
         """
         cur_node = self._root
         while cur_node:
@@ -103,9 +83,6 @@ class BSTDictionary:
     def put(self, key, value):
         """
         put V<key,value> to dictionary
-        :param key:
-        :param value:
-        :return:
         """
         if self.is_empty():
             self._root = BSTNode(key, value)
@@ -129,8 +106,6 @@ class BSTDictionary:
     def remove(self, key):
         """
         remove V by key from dictionary
-        :param key:
-        :return:
         """
         p, q = None, self._root
         # if the tree is None, return
@@ -171,9 +146,8 @@ class BSTDictionary:
     def _mid_order(self, node=None):
         """
         Middle order traversal binary tree to get V<key,value> for each node
-        :param node:
-        :return:
         """
+
         if node is None:
             node = self._root
         if node.left is not None:
@@ -186,10 +160,6 @@ class BSTDictionary:
 
     # Store all the values in the dictionary in the linked list
     def to_list(self) -> list:
-        """
-        convert dictionary to list that contains key and data.
-        :return:
-        """
         res = []
         if self._root is None:
             return []
@@ -199,10 +169,6 @@ class BSTDictionary:
             return list(res)
 
     def to_key_list(self):
-        """
-        convert dictionary to list that only contains key
-        :return:
-        """
         res = []
         if self._root is None:
             return []
@@ -212,26 +178,16 @@ class BSTDictionary:
             return list(res)
 
     def from_list(self, e):
-        """
-        convert list to dictionary
-        :param e:
-        :return:
-        """
         if e:
             for element in e:
                 self.put(element[0], element[1])
 
     def size(self) -> int:
-        """
-        get the number of storage elements in dictionary
-        :return:
-        """
         return len(self.to_list())
 
     def filter(self, f):
         """
-        filter the diction by judge function
-        :param f:
+        :param f: filter function
         :return:
         """
         stack = []
@@ -292,20 +248,11 @@ class BSTDictionary:
         return state
 
     def empty(self):
-        """
-        clear all elements in the dictionary.
-        :return:
-        """
         self._root = None
         self._index = -1
         self._all_key = []
 
     def concat(self, dic):
-        """
-        merge two dictionaries into one.
-        :param dic:
-        :return:
-        """
         assert type(dic) is BSTDictionary
         self_key = []
         concat_key = []
