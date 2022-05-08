@@ -46,8 +46,7 @@ class BSTDictionary:
 
     def next(self) -> object:
         """
-        @return the next key
-        :rtype: kv
+        return the next value
         """
         self._index = self._index + 1
         if self._index >= len(self._all_key):
@@ -56,7 +55,7 @@ class BSTDictionary:
 
     def hasNext(self) -> bool:
         """
-        @return whether we have a next key
+        return whether we have a next key
         :rtype: bool
         """
         return self._index < len(self._all_key)
@@ -83,6 +82,8 @@ class BSTDictionary:
     def put(self, key, value):
         """
         put V<key,value> to dictionary
+        :param key: string type or a number
+        :param value: corresponding to key
         """
         if self.is_empty():
             self._root = BSTNode(key, value)
@@ -160,6 +161,10 @@ class BSTDictionary:
 
     # Store all the values in the dictionary in the linked list
     def to_list(self) -> list:
+        """
+        convert dictionary to a list
+        :return: the list convert by dictionary
+        """
         res = []
         if self._root is None:
             return []
@@ -169,6 +174,10 @@ class BSTDictionary:
             return list(res)
 
     def to_key_list(self):
+        """
+        return a list containing all keys
+        :return: the list convert by all  key in dictionary
+        """
         res = []
         if self._root is None:
             return []
@@ -178,17 +187,23 @@ class BSTDictionary:
             return list(res)
 
     def from_list(self, e):
+        """
+        Turn a list containing tuples into a dictionary
+        :param e: A list containing tuples
+        """
         if e:
             for element in e:
                 self.put(element[0], element[1])
 
     def size(self) -> int:
+        """
+        Returns the number of key value pairs contained in the dictionary
+        """
         return len(self.to_list())
 
     def filter(self, f):
         """
         :param f: filter function
-        :return:
         """
         stack = []
         node = self._root
@@ -208,7 +223,6 @@ class BSTDictionary:
         """
         Query whether the key exists in the dictionary
         :param key:
-        :return:
         """
         return self.get(key) is not None
 
@@ -216,7 +230,6 @@ class BSTDictionary:
         """
         Use function f to process all value in the dictionary
         :param f: function
-        :return:
         """
         stack = []
         node = self._root
@@ -248,11 +261,17 @@ class BSTDictionary:
         return state
 
     def empty(self):
+        """
+        Remove all contents of dictionary
+        """
         self._root = None
         self._index = -1
         self._all_key = []
 
     def concat(self, dic):
+        """
+        Merge two dictionaries
+        """
         assert type(dic) is BSTDictionary
         self_key = []
         concat_key = []
