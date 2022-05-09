@@ -9,12 +9,18 @@ import external_library as el
 class TestBSTDictionary(unittest.TestCase):
 
     def test_set(self):
+        """
+        test for function set() in dictionary
+        """
         dictionary_test = BSTDictionary()
         self.assertEqual(dictionary_test.get(1), None)
         dictionary_test.put(1, 541)
         self.assertEqual(dictionary_test.get(1), 541)
 
     def test_size(self):
+        """
+        test for function size() in dictionary
+        """
         dictionary_test = BSTDictionary()
         size = dictionary_test.size()
         self.assertEqual(size, 0)
@@ -24,6 +30,9 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(dictionary_test.size(), 2)
 
     def test_get(self):
+        """
+        test for function get() in dictionary
+        """
         dictionary_test = BSTDictionary()
         self.assertEqual(dictionary_test.get(1), None)
         dictionary_test.put(1, 123)
@@ -32,6 +41,9 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(dictionary_test.get(123), 123)
 
     def test_remove(self):
+        """
+        test for function remove() in dictionary
+        """
         dictionary_test = BSTDictionary()
         dictionary_test.put(1, 11)
         dictionary_test.put(2, 22)
@@ -41,6 +53,9 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(dictionary_test.get(1), None)
 
     def test_to_list(self):
+        """
+        test for function to_list() in dictionary
+        """
         dictionary_test = BSTDictionary()
         data = [(1, 11), (2, 22), (3, 33)]
         self.assertEqual(dictionary_test.to_list(), [])
@@ -56,6 +71,9 @@ class TestBSTDictionary(unittest.TestCase):
             self.assertEqual(dictionary_test.to_list(), e)
 
     def test_filter(self):
+        """
+        test for function filter() in dictionary
+        """
         dictionary_test = BSTDictionary()
         dictionary_test.put(1, 11)
         dictionary_test.put(2, "22")
@@ -64,6 +82,9 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(dictionary_test.to_list(), [(1, 11), (3, 33)])
 
     def test_member(self):
+        """
+        test for function member() in dictionary
+        """
         dictionary_test = BSTDictionary()
         dictionary_test.put(1, 11)
         dictionary_test.put(2, "22")
@@ -72,6 +93,9 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(dictionary_test.member(3), True)
 
     def test_map(self):
+        """
+        test for function map() in dictionary
+        """
         dictionary_test = BSTDictionary()
         dictionary_test.put(1, 11)
         dictionary_test.put(2, 22)
@@ -79,6 +103,9 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(dictionary_test.to_list(), [(1, "11"), (2, "22")])
 
     def test_reduce(self):
+        """
+        test for function reduce() in dictionary
+        """
         dictionary_test = BSTDictionary()
         dictionary_test.put(1, 11)
         dictionary_test.put(2, "22")
@@ -88,6 +115,10 @@ class TestBSTDictionary(unittest.TestCase):
 
     @given(st.lists(st.tuples(st.integers(), st.integers())))
     def test_empty(self, list1):
+        """
+        test for function empty() in dictionary
+        :param list1: A list containing elements that are tuples
+        """
         new_li = el.list_to_kv_list(list1)
         dictionary_test = BSTDictionary()
         dictionary_test.from_list(list1)
@@ -98,6 +129,11 @@ class TestBSTDictionary(unittest.TestCase):
     @given(st.lists(st.tuples(st.integers(), st.integers())),
            st.lists(st.tuples(st.integers(), st.integers())))
     def test_concat(self, list1, list2):
+        """
+        test for function concat() in dictionary
+        :param list1: A list containing elements that are tuples
+        :param list2: A list containing elements that are tuples
+        """
         dictionary_test = BSTDictionary()
         dictionary_test2 = BSTDictionary()
         if len(list1) > len(list2):
@@ -115,9 +151,6 @@ class TestBSTDictionary(unittest.TestCase):
     def test_monoid(self, list1, list2):
         """
         the function use to test for monoid properties
-        :param list1:
-        :param list2:
-        :return:
         """
         dictionary_test = BSTDictionary()
         dictionary_test2 = BSTDictionary()

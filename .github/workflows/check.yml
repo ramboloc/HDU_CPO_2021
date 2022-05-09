@@ -33,9 +33,9 @@ jobs:
       - name: Type checks
         run: mypy .
 
-      # if you pretend to make a typed version of your program, you should uncomment these lines:  
-      # - name: Strict type checks 
-      #   run: mypy . --strict
+      #if you pretend to make a typed version of your program, you should uncomment these lines:
+      - name: Strict type checks
+        run: mypy . --strict
 
   markdown:
     name: Lint markdown
