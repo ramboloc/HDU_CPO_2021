@@ -4,6 +4,7 @@ import hypothesis.strategies as st
 import BSTDictionary as td
 from BSTDictionary import BSTDictionary
 import external_library as el
+from typing import Any, List
 
 
 class TestBSTDictionary(unittest.TestCase):
@@ -114,7 +115,7 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(result, 44)
 
     @given(st.lists(st.tuples(st.integers(), st.integers())))
-    def test_empty(self, list1) -> None:
+    def test_empty(self, list1: List[Any]) -> None:
         """
         test for function empty() in dictionary
         :param list1: A list containing elements that are tuples
@@ -128,7 +129,7 @@ class TestBSTDictionary(unittest.TestCase):
 
     @given(st.lists(st.tuples(st.integers(), st.integers())),
            st.lists(st.tuples(st.integers(), st.integers())))
-    def test_concat(self, list1, list2) -> None:
+    def test_concat(self, list1: List[Any], list2: List[Any]) -> None:
         """
         test for function concat() in dictionary
         :param list1: A list containing elements that are tuples
@@ -148,7 +149,7 @@ class TestBSTDictionary(unittest.TestCase):
 
     @given(st.lists(st.tuples(st.integers(), st.integers())),
            st.lists(st.tuples(st.integers(), st.integers())))
-    def test_monoid(self, list1, list2) -> None:
+    def test_monoid(self, list1: List[Any], list2: List[Any]) -> None:
         """
         the function use to test for monoid properties
         """

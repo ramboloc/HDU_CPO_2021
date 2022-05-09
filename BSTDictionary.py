@@ -1,4 +1,4 @@
-from typing import Any, List, Iterable
+from typing import Any, List
 
 
 class BSTNode:
@@ -148,7 +148,7 @@ class BSTDictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node=None) -> Iterable:
+    def _mid_order(self, node: Any = None) -> Any:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
