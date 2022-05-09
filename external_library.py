@@ -1,18 +1,13 @@
 def f(x):
     """
     this function transform the type of x to str
-    :param x:
-    :return:
     """
     return str(x)
 
 
 def add_value(obj, value):
     """
-    his function add all value if type of value is int
-    :param obj:
-    :param value:
-    :return:
+    this function add all value if type of value is int
     """
     if type(value) is int:
         return obj + value
@@ -26,8 +21,6 @@ def list_to_kv_list(list1):
     kv_ List shall have the following characteristics:
     1. All elements are binary.
     2. All element key values are not duplicate.
-    :param list1:
-    :return:
     """
     list_key = []
     list_value = []
@@ -49,9 +42,6 @@ def list_to_kv_list(list1):
 def list_merge(lis1, lis2):
     """
     merge tow list to one according to list length
-    :param lis1:
-    :param lis2:
-    :return:
     """
     for i in lis2:
         lis1.append(i)
