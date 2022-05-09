@@ -1,4 +1,4 @@
-from typing import Any, List
+from typing import Any, List, Generator
 
 
 class BSTNode:
@@ -85,7 +85,7 @@ class BSTDictionary:
                 return cur_node.data
         return None
 
-    def put(self, key, value) -> None:
+    def put(self, key: Any, value: Any) -> None:
         """
         put V<key,value> to dictionary
         """
@@ -108,7 +108,7 @@ class BSTDictionary:
                 cur_node.data = value
                 break
 
-    def remove(self, key) -> None:
+    def remove(self, key: Any) -> None:
         """
         remove V by key from dictionary
         """
@@ -148,7 +148,7 @@ class BSTDictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node=None) -> list:
+    def _mid_order(self, node=None) -> Generator:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
@@ -169,7 +169,7 @@ class BSTDictionary:
         convert dictionary to a list
         :return: the list convert by dictionary
         """
-        res = []
+        res: List = []
         if self._root is None:
             return []
         else:
@@ -182,7 +182,7 @@ class BSTDictionary:
         return a list containing all keys
         :return: the list convert by all  key in dictionary
         """
-        res = []
+        res: List = []
         if self._root is None:
             return []
         else:
@@ -209,7 +209,7 @@ class BSTDictionary:
         """
         :param f: filter function
         """
-        stack = []
+        stack: List = []
         node = self._root
         result = []
         while node or stack:
@@ -235,7 +235,7 @@ class BSTDictionary:
         Use function f to process all value in the dictionary
         :param f: function
         """
-        stack = []
+        stack: List = []
         node = self._root
         while node or stack:
             while node:
@@ -253,7 +253,7 @@ class BSTDictionary:
         :return: state
         """
         state = initial_state
-        stack = []
+        stack: List = []
         node = self._root
         while node or stack:
             while node:
