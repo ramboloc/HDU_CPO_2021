@@ -1,5 +1,6 @@
 from typing import Any, List
 
+
 class BSTNode:
     """
     Define a binary tree node class.
@@ -45,7 +46,7 @@ class BSTDictionary:
         init dictionary
         we use a list to implement pseudo iterator
         """
-        self._root: Any= None
+        self._root: Any = None
         self._all_key: List[Any] = []
         self._index = -1
 
