@@ -245,7 +245,7 @@ class BSTDictionary:
             node.data = f(node.data)
             node = node.right
 
-    def reduce(self, f, initial_state: Any) -> object:
+    def reduce(self, f:Any, initial_state: Any) -> object:
         """
         Use function f to process all value in the dictionary
         :param initial_state:
