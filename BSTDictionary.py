@@ -6,19 +6,19 @@ class BSTNode:
     Define a binary tree node class.
     """
 
-    def __init__(self, key, value) -> None:
+    def __init__(self, key: Any, value: Any) -> None:
         self.key = key
         self.data = value
         self.left = None
         self.right = None
 
 
-def judge(obj) -> bool:
+def judge(obj: Any) -> bool:
     """this function shows whether it is a number """
     return type(obj) is int
 
 
-def compare(a, b) -> int:
+def compare(a: Any, b: Any) -> int:
     """
     compare whether a larger than b
     """
@@ -71,7 +71,7 @@ class BSTDictionary:
         return self._root is None
 
     # Find value according to key value
-    def get(self, key) -> object:
+    def get(self, key: Any) -> object:
         """
         get value by key
         """
@@ -148,7 +148,7 @@ class BSTDictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node=None) -> Generator:
+    def _mid_order(self, node=None) -> Generator[Any]:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
@@ -164,7 +164,7 @@ class BSTDictionary:
                 yield item
 
     # Store all the values in the dictionary in the linked list
-    def to_list(self) -> list:
+    def to_list(self) -> List[Any]:
         """
         convert dictionary to a list
         :return: the list convert by dictionary
