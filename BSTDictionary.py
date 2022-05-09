@@ -148,7 +148,7 @@ class BSTDictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node=None) -> Generator[Any]:
+    def _mid_order(self, node=None) -> Generator:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
