@@ -190,7 +190,7 @@ class BSTDictionary:
                 res.append(node.key)
             return list(res)
 
-    def from_list(self, e: List[Tuple]) -> None:
+    def from_list(self, e: Any) -> None:
         """
         Turn a list containing tuples into a dictionary
         :param e: A list containing tuples

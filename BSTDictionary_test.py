@@ -67,7 +67,6 @@ class TestBSTDictionary(unittest.TestCase):
         test_data = [[], [(1, 11)], [(1, 11), (2, 21)]]
         for e in test_data:
             dictionary_test = BSTDictionary()
-            e = list(e)
             dictionary_test.from_list(e)
             self.assertEqual(dictionary_test.to_list(), e)
 
