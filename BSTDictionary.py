@@ -1,4 +1,4 @@
-from typing import Any, List, Tuple, Iterable
+from typing import Any, List, Iterable
 
 
 class BSTNode:
