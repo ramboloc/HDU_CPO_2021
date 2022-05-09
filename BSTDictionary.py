@@ -1,3 +1,6 @@
+from typing import Any, List
+
+
 class BSTNode:
     """
     Define a binary tree node class.
@@ -44,7 +47,7 @@ class BSTDictionary:
         we use a list to implement pseudo iterator
         """
         self._root = None
-        self._all_key = []
+        self._all_key = []  # type: List[tuple[Any,Any]]
         self._index = -1
 
     def next(self) -> object:
@@ -85,8 +88,6 @@ class BSTDictionary:
     def put(self, key, value) -> None:
         """
         put V<key,value> to dictionary
-        :param key: string type or a number
-        :param value: corresponding to key
         """
         if self.is_empty():
             self._root = BSTNode(key, value)
