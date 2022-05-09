@@ -1,11 +1,11 @@
-def f(x):
+def f(x) -> str:
     """
     this function transform the type of x to str
     """
     return str(x)
 
 
-def add_value(obj, value):
+def add_value(obj, value) -> object:
     """
     this function add all value if type of value is int
     """
@@ -15,7 +15,7 @@ def add_value(obj, value):
         return obj
 
 
-def list_to_kv_list(list1):
+def list_to_kv_list(list1) -> list:
     """
     Convert a list containing two tuples into kV we require_ list
     kv_ List shall have the following characteristics:
@@ -39,7 +39,7 @@ def list_to_kv_list(list1):
     return new_list
 
 
-def list_merge(lis1, lis2):
+def list_merge(lis1, lis2) -> list:
     """
     merge tow list to one according to list length
     """

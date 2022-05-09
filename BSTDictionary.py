@@ -3,19 +3,22 @@ class BSTNode:
     Define a binary tree node class.
     """
 
-    def __init__(self, key, value):
+    def __init__(self, key, value) -> None:
         self.key = key
         self.data = value
         self.left = None
         self.right = None
 
 
-def judge(obj):
+def judge(obj) -> bool:
     """this function shows whether it is a number """
     return type(obj) is int
 
 
 def compare(a, b) -> int:
+    """
+    compare whether a larger than b
+    """
     if type(a) == type(b):
         if a > b:
             return 1
@@ -35,7 +38,7 @@ class BSTDictionary:
     Binary sort tree based on bst-node class.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         init dictionary
         we use a list to implement pseudo iterator
@@ -65,7 +68,7 @@ class BSTDictionary:
         return self._root is None
 
     # Find value according to key value
-    def get(self, key):
+    def get(self, key) -> object:
         """
         get value by key
         """
@@ -79,7 +82,7 @@ class BSTDictionary:
                 return cur_node.data
         return None
 
-    def put(self, key, value):
+    def put(self, key, value) -> None:
         """
         put V<key,value> to dictionary
         :param key: string type or a number
@@ -104,7 +107,7 @@ class BSTDictionary:
                 cur_node.data = value
                 break
 
-    def remove(self, key):
+    def remove(self, key) -> None:
         """
         remove V by key from dictionary
         """
@@ -144,7 +147,7 @@ class BSTDictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node=None):
+    def _mid_order(self, node=None) -> list:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
@@ -173,7 +176,7 @@ class BSTDictionary:
                 res.append((node.key, node.data))
             return list(res)
 
-    def to_key_list(self):
+    def to_key_list(self) -> list:
         """
         return a list containing all keys
         :return: the list convert by all  key in dictionary
@@ -186,7 +189,7 @@ class BSTDictionary:
                 res.append(node.key)
             return list(res)
 
-    def from_list(self, e):
+    def from_list(self, e) -> None:
         """
         Turn a list containing tuples into a dictionary
         :param e: A list containing tuples
@@ -201,7 +204,7 @@ class BSTDictionary:
         """
         return len(self.to_list())
 
-    def filter(self, f):
+    def filter(self, f) -> None:
         """
         :param f: filter function
         """
@@ -226,7 +229,7 @@ class BSTDictionary:
         """
         return self.get(key) is not None
 
-    def map(self, f):
+    def map(self, f) -> None:
         """
         Use function f to process all value in the dictionary
         :param f: function
@@ -241,7 +244,7 @@ class BSTDictionary:
             node.data = f(node.data)
             node = node.right
 
-    def reduce(self, f, initial_state):
+    def reduce(self, f, initial_state) -> object:
         """
         Use function f to process all value in the dictionary
         :param initial_state:
@@ -260,7 +263,7 @@ class BSTDictionary:
             node = node.right
         return state
 
-    def empty(self):
+    def empty(self) -> None:
         """
         Remove all contents of dictionary
         """
