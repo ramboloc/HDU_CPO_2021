@@ -46,7 +46,7 @@ class BSTDictionary:
         init dictionary
         we use a list to implement pseudo iterator
         """
-        self._root = None
+        self._root :Any = None
         self._all_key = []  # type: List[tuple[Any,Any]]
         self._index = -1
 
