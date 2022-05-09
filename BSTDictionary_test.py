@@ -8,7 +8,7 @@ import external_library as el
 
 class TestBSTDictionary(unittest.TestCase):
 
-    def test_set(self) ->None:
+    def test_set(self) -> None:
         """
         test for function set() in dictionary
         """
@@ -17,7 +17,7 @@ class TestBSTDictionary(unittest.TestCase):
         dictionary_test.put(1, 541)
         self.assertEqual(dictionary_test.get(1), 541)
 
-    def test_size(self)->None:
+    def test_size(self) -> None:
         """
         test for function size() in dictionary
         """
@@ -29,7 +29,7 @@ class TestBSTDictionary(unittest.TestCase):
         dictionary_test.put(2, 2)
         self.assertEqual(dictionary_test.size(), 2)
 
-    def test_get(self)->None:
+    def test_get(self) -> None:
         """
         test for function get() in dictionary
         """
@@ -40,7 +40,7 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(dictionary_test.get(1), 123)
         self.assertEqual(dictionary_test.get(123), 123)
 
-    def test_remove(self)->None:
+    def test_remove(self) -> None:
         """
         test for function remove() in dictionary
         """
@@ -52,7 +52,7 @@ class TestBSTDictionary(unittest.TestCase):
         dictionary_test.remove(1)
         self.assertEqual(dictionary_test.get(1), None)
 
-    def test_to_list(self)->None:
+    def test_to_list(self) -> None:
         """
         test for function to_list() in dictionary
         """
@@ -63,14 +63,14 @@ class TestBSTDictionary(unittest.TestCase):
             dictionary_test.put(e[0], e[1])
         self.assertEqual(dictionary_test.to_list(), data)
 
-    def test_from_list(self)->None:
+    def test_from_list(self) -> None:
         test_data = [[], [(1, 11)], [(1, 11), (2, 21)]]
         for e in test_data:
             dictionary_test = BSTDictionary()
             dictionary_test.from_list(e)
             self.assertEqual(dictionary_test.to_list(), e)
 
-    def test_filter(self)->None:
+    def test_filter(self) -> None:
         """
         test for function filter() in dictionary
         """
@@ -81,7 +81,7 @@ class TestBSTDictionary(unittest.TestCase):
         dictionary_test.filter(td.judge)
         self.assertEqual(dictionary_test.to_list(), [(1, 11), (3, 33)])
 
-    def test_member(self)->None:
+    def test_member(self) -> None:
         """
         test for function member() in dictionary
         """
@@ -92,7 +92,7 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(dictionary_test.member(4), False)
         self.assertEqual(dictionary_test.member(3), True)
 
-    def test_map(self)->None:
+    def test_map(self) -> None:
         """
         test for function map() in dictionary
         """
@@ -102,7 +102,7 @@ class TestBSTDictionary(unittest.TestCase):
         dictionary_test.map(el.f)
         self.assertEqual(dictionary_test.to_list(), [(1, "11"), (2, "22")])
 
-    def test_reduce(self)->None:
+    def test_reduce(self) -> None:
         """
         test for function reduce() in dictionary
         """
@@ -114,7 +114,7 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(result, 44)
 
     @given(st.lists(st.tuples(st.integers(), st.integers())))
-    def test_empty(self, list1)->None:
+    def test_empty(self, list1) -> None:
         """
         test for function empty() in dictionary
         :param list1: A list containing elements that are tuples
@@ -128,7 +128,7 @@ class TestBSTDictionary(unittest.TestCase):
 
     @given(st.lists(st.tuples(st.integers(), st.integers())),
            st.lists(st.tuples(st.integers(), st.integers())))
-    def test_concat(self, list1, list2)->None:
+    def test_concat(self, list1, list2) -> None:
         """
         test for function concat() in dictionary
         :param list1: A list containing elements that are tuples
@@ -148,7 +148,7 @@ class TestBSTDictionary(unittest.TestCase):
 
     @given(st.lists(st.tuples(st.integers(), st.integers())),
            st.lists(st.tuples(st.integers(), st.integers())))
-    def test_monoid(self, list1, list2)->None:
+    def test_monoid(self, list1, list2) -> None:
         """
         the function use to test for monoid properties
         """
