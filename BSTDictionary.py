@@ -1,4 +1,4 @@
-from typing import Any, List
+from typing import Any, List, Optional, Tuple
 
 
 class BSTNode:
@@ -46,8 +46,8 @@ class BSTDictionary:
         init dictionary
         we use a list to implement pseudo iterator
         """
-        self._root: Any = None
-        self._all_key = []  # type: List[tuple[Any,Any]]
+        self._root: Optional[BSTNode] = None
+        self._all_key: List[Tuple[Any, Any]] = []
         self._index = -1
 
     def next(self) -> object:
