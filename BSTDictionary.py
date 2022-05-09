@@ -1,4 +1,4 @@
-from typing import Any, List, Generator
+from typing import Any, List, Generator, Tuple, Iterable
 
 
 class BSTNode:
@@ -148,7 +148,7 @@ class BSTDictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node=None) -> Generator:
+    def _mid_order(self, node=None) -> Iterable:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
@@ -169,7 +169,7 @@ class BSTDictionary:
         convert dictionary to a list
         :return: the list convert by dictionary
         """
-        res: List = []
+        res: List[Any] = []
         if self._root is None:
             return []
         else:
@@ -177,12 +177,12 @@ class BSTDictionary:
                 res.append((node.key, node.data))
             return list(res)
 
-    def to_key_list(self) -> list:
+    def to_key_list(self) -> List[Any]:
         """
         return a list containing all keys
         :return: the list convert by all  key in dictionary
         """
-        res: List = []
+        res: List[Any] = []
         if self._root is None:
             return []
         else:
@@ -190,7 +190,7 @@ class BSTDictionary:
                 res.append(node.key)
             return list(res)
 
-    def from_list(self, e) -> None:
+    def from_list(self, e: List[Tuple]) -> None:
         """
         Turn a list containing tuples into a dictionary
         :param e: A list containing tuples
@@ -205,11 +205,11 @@ class BSTDictionary:
         """
         return len(self.to_list())
 
-    def filter(self, f) -> None:
+    def filter(self, f: Any) -> None:
         """
         :param f: filter function
         """
-        stack: List = []
+        stack: List[Any] = []
         node = self._root
         result = []
         while node or stack:
@@ -223,19 +223,19 @@ class BSTDictionary:
         for key in result:
             self.remove(key)
 
-    def member(self, key) -> bool:
+    def member(self, key: Any) -> bool:
         """
         Query whether the key exists in the dictionary
         :param key:
         """
         return self.get(key) is not None
 
-    def map(self, f) -> None:
+    def map(self, f: Any) -> None:
         """
         Use function f to process all value in the dictionary
         :param f: function
         """
-        stack: List = []
+        stack: List[Any] = []
         node = self._root
         while node or stack:
             while node:
@@ -245,7 +245,7 @@ class BSTDictionary:
             node.data = f(node.data)
             node = node.right
 
-    def reduce(self, f, initial_state) -> object:
+    def reduce(self, f, initial_state: Any) -> object:
         """
         Use function f to process all value in the dictionary
         :param initial_state:
@@ -253,7 +253,7 @@ class BSTDictionary:
         :return: state
         """
         state = initial_state
-        stack: List = []
+        stack: List[Any] = []
         node = self._root
         while node or stack:
             while node:
@@ -272,13 +272,13 @@ class BSTDictionary:
         self._index = -1
         self._all_key = []
 
-    def concat(self, dic):
+    def concat(self, dic: Any) -> Any:
         """
         Merge two dictionaries
         """
         assert type(dic) is BSTDictionary
-        self_key = []
-        concat_key = []
+        self_key: List[Any] = []
+        concat_key: List[Any] = []
         flag = 0
         while len(self_key) > 0:
             if self_key.pop() < concat_key.pop():
