@@ -1,3 +1,6 @@
+from typing import Any, List
+
+
 def f(x) -> str:
     """
     this function transform the type of x to str
@@ -22,7 +25,8 @@ def list_to_kv_list(list1) -> list:
     1. All elements are binary.
     2. All element key values are not duplicate.
     """
-    list_key = []
+
+    list_key = []  # type: List[tuple[Any,Any]]
     list_value = []
     new_list = []
     for i in list1:
