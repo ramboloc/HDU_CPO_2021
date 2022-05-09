@@ -18,7 +18,7 @@ def add_value(obj: int, value: Any) -> object:
         return obj
 
 
-def list_to_kv_list(list1: List) -> list:
+def list_to_kv_list(list1: List[Any]) -> List[Any]:
     """
     Convert a list containing two tuples into kV we require_ list
     kv_ List shall have the following characteristics:
@@ -43,7 +43,7 @@ def list_to_kv_list(list1: List) -> list:
     return new_list
 
 
-def list_merge(lis1: List, lis2: List) -> List[Any]:
+def list_merge(lis1: List[Any], lis2: List[Any]) -> List[Any]:
     """
     merge tow list to one according to list length
     """
