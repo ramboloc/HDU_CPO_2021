@@ -1,4 +1,4 @@
-from typing import Any, List
+from typing import Any, List, Callable
 
 
 class BSTNode:
@@ -205,8 +205,9 @@ class BSTDictionary:
         """
         return len(self.to_list())
 
-    def filter(self, f: Any) -> None:
+    def filter(self, f: Callable[[Any], Any]) -> None:
         """
+         The deletion condition of value in the dictionary is not met
         :param f: filter function
         """
         stack: List[Any] = []
@@ -230,7 +231,7 @@ class BSTDictionary:
         """
         return self.get(key) is not None
 
-    def map(self, f: Any) -> None:
+    def map(self, f: Callable[[Any], Any]) -> None:
         """
         Use function f to process all value in the dictionary
         :param f: function
@@ -245,7 +246,7 @@ class BSTDictionary:
             node.data = f(node.data)
             node = node.right
 
-    def reduce(self, f: Any, initial_state: Any) -> object:
+    def reduce(self, f: Callable[[Any], Any], initial_state: Any) -> object:
         """
         Use function f to process all value in the dictionary
         :param initial_state:
