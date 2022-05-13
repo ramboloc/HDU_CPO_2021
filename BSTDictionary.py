@@ -1,5 +1,4 @@
 from typing import Any, List
-from external_library import compare
 
 
 class BSTNode:
@@ -14,6 +13,29 @@ class BSTNode:
         self.right = None
 
 
+def judge(obj: Any) -> bool:
+    """this function shows whether it is a number """
+    return type(obj) is int
+
+
+def compare(a: Any, b: Any) -> int:
+    """
+    compare whether a larger than b
+    """
+    if type(a) == type(b):
+        if a > b:
+            return 1
+        elif a < b:
+            return 2
+        else:
+            return 3
+    else:
+        if type(a) is int:
+            return 1
+        else:
+            return 2
+
+
 class BSTDictionary:
     """
     Binary sort tree based on bst-node class.
@@ -25,7 +47,7 @@ class BSTDictionary:
         we use a list to implement pseudo iterator
         """
         self._root: Any = None
-        self._all_key: List[Any] = []
+        self._all_key = []  # type: List[tuple[Any,Any]]
         self._index = -1
 
     def next(self) -> object:

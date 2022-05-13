@@ -52,19 +52,3 @@ def list_merge(lis1: List[Any], lis2: List[Any]) -> List[Any]:
     return lis1
 
 
-def compare(a: Any, b: Any) -> int:
-    """
-    compare whether a larger than b
-    """
-    if type(a) == type(b):
-        if a > b:
-            return 1
-        elif a < b:
-            return 2
-        else:
-            return 3
-    else:
-        if type(a) is int:
-            return 1
-        else:
-            return 2
