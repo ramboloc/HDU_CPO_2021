@@ -50,5 +50,3 @@ def list_merge(lis1: List[Any], lis2: List[Any]) -> List[Any]:
     for i in lis2:
         lis1.append(i)
     return lis1
-
-
