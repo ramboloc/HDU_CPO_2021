@@ -47,7 +47,7 @@ class BSTDictionary:
         we use a list to implement pseudo iterator
         """
         self._root: Any = None
-        self._all_key = []  # type: List[tuple[Any,Any]]
+        self._all_key: List[Any] = []
         self._index = -1
 
     def next(self) -> object:
