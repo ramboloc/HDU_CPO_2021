@@ -52,11 +52,6 @@ def list_merge(lis1: List[Any], lis2: List[Any]) -> List[Any]:
     return lis1
 
 
-def judge(obj: Any) -> bool:
-    """this function shows whether it is a number """
-    return type(obj) is int
-
-
 def compare(a: Any, b: Any) -> int:
     """
     compare whether a larger than b
