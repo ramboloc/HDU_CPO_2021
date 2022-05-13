@@ -1,4 +1,4 @@
-from typing import Any, List, Callable
+from typing import Any, List
 
 
 class BSTNode:
@@ -47,7 +47,7 @@ class BSTDictionary:
         we use a list to implement pseudo iterator
         """
         self._root: Any = None
-        self._all_key = []  # type: List[tuple[Any,Any]]
+        self._all_key: List[Any] = []
         self._index = -1
 
     def next(self) -> object:
@@ -66,11 +66,11 @@ class BSTDictionary:
         """
         return self._index < len(self._all_key)
 
-    """ Judge whether the bit is empty"""
+    # Judge whether the bit is empty
     def is_empty(self) -> bool:
         return self._root is None
 
-    """ Find value according to key value"""
+    # Find value according to key value
     def get(self, key: Any) -> object:
         """
         get value by key
@@ -113,10 +113,10 @@ class BSTDictionary:
         remove V by key from dictionary
         """
         p, q = None, self._root
-        """ if the tree is None, return"""
+        # if the tree is None, return
         if not q:
             return
-        """q is the node we need to find, q is the parent node of q"""
+        # q is the node we need to find, q is the parent node of q
         while q and q.key != key:
             p = q
             if compare(q.key, key) == 1:
@@ -126,9 +126,9 @@ class BSTDictionary:
             if not q:
                 return
         self._all_key.remove(q.key)
-        """ Readjust the binary tree structure
-        Find the rightmost node of the left subtree of node q
-        link the right subtree of q to the right subtree of this node"""
+        # Readjust the binary tree structure
+        # Find the rightmost node of the left subtree of node q
+        # link the right subtree of q to the right subtree of this node
         if not q.left:
             if p is None:
                 self._root = q.right
@@ -163,7 +163,7 @@ class BSTDictionary:
             for item in self._mid_order(node.right):
                 yield item
 
-    """ Store all the values in the dictionary in the linked list """
+    # Store all the values in the dictionary in the linked list
     def to_list(self) -> List[Any]:
         """
         convert dictionary to a list
@@ -205,9 +205,8 @@ class BSTDictionary:
         """
         return len(self.to_list())
 
-    def filter(self, f: Callable[[Any], Any]) -> None:
+    def filter(self, f: Any) -> None:
         """
-         The deletion condition of value in the dictionary is not met
         :param f: filter function
         """
         stack: List[Any] = []
@@ -231,7 +230,7 @@ class BSTDictionary:
         """
         return self.get(key) is not None
 
-    def map(self, f: Callable[[Any], Any]) -> None:
+    def map(self, f: Any) -> None:
         """
         Use function f to process all value in the dictionary
         :param f: function
@@ -246,7 +245,7 @@ class BSTDictionary:
             node.data = f(node.data)
             node = node.right
 
-    def reduce(self, f: Callable[[Any], Any], initial_state: Any) -> object:
+    def reduce(self, f: Any, initial_state: Any) -> object:
         """
         Use function f to process all value in the dictionary
         :param initial_state:
