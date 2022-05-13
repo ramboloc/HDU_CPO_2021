@@ -50,3 +50,26 @@ def list_merge(lis1: List[Any], lis2: List[Any]) -> List[Any]:
     for i in lis2:
         lis1.append(i)
     return lis1
+
+
+def judge(obj: Any) -> bool:
+    """this function shows whether it is a number """
+    return type(obj) is int
+
+
+def compare(a: Any, b: Any) -> int:
+    """
+    compare whether a larger than b
+    """
+    if type(a) == type(b):
+        if a > b:
+            return 1
+        elif a < b:
+            return 2
+        else:
+            return 3
+    else:
+        if type(a) is int:
+            return 1
+        else:
+            return 2
