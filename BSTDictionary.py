@@ -14,8 +14,8 @@ class BSTNode:
             raise TypeError("key and value only can be int or None")
         self.key: Optional[int] = key
         self.data: Optional[int] = value
-        self.left = None
-        self.right = None
+        self.left: Optional[BSTNode] = None
+        self.right: Optional[BSTNode] = None
 
 
 class DIterator(object):
@@ -52,7 +52,6 @@ class BSTDictionary:
         we use a list to implement pseudo iterator
         """
         self._root: Optional[BSTNode] = None
-        self._all_key: List[int] = []
         self._index = -1
 
     def __iter__(self):
@@ -83,18 +82,15 @@ class BSTDictionary:
         """
         if self.is_empty():
             self._root = BSTNode(key, value)
-            self._all_key.append(key)
         cur_node = self._root
         while True:
             if compare(cur_node.key, key) == 1:
                 if cur_node.left is None:
                     cur_node.left = BSTNode(key, value)
-                    self._all_key.append(key)
                 cur_node = cur_node.left
             elif compare(cur_node.key, key) == 2:
                 if cur_node.right is None:
                     cur_node.right = BSTNode(key, value)
-                    self._all_key.append(key)
                 cur_node = cur_node.right
             else:
                 cur_node.data = value
@@ -117,7 +113,6 @@ class BSTDictionary:
                 q = q.right
             if not q:
                 return
-        self._all_key.remove(q.key)
         """ Readjust the binary tree structure
         Find the rightmost node of the left subtree of node q
         link the right subtree of q to the right subtree of this node"""
@@ -248,7 +243,7 @@ class BSTDictionary:
         """
         state: int = initial_state
         stack: List[BSTNode] = []
-        node: 'BSTNode' = self._root
+        node: Optional[BSTNode] = self._root
         while node or stack:
             while node:
                 stack.append(node)
@@ -264,9 +259,8 @@ class BSTDictionary:
         """
         self._root = None
         self._index = -1
-        self._all_key = []
 
-    def concat(self, dic: 'BSTDictionary') -> 'BSTDictionary':
+    def concat(self, dic: 'BSTDictionary') -> None:
         """
         Merge two dictionaries
         """
