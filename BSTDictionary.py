@@ -82,7 +82,8 @@ class BSTDictionary:
         """
         if self.is_empty():
             self._root = BSTNode(key, value)
-        cur_node = self._root
+            return
+        cur_node: BSTNode = self._root
         while True:
             if compare(cur_node.key, key) == 1:
                 if cur_node.left is None:
