@@ -1,24 +1,9 @@
-from typing import Any, List
+from typing import List, Optional, Tuple
 
 
-def f(x: int) -> str:
-    """
-    this function transform the type of x to str
-    """
-    return str(x)
-
-
-def add_value(obj: int, value: Any) -> object:
-    """
-    this function add all value if type of value is int
-    """
-    if type(value) is int:
-        return obj + value
-    else:
-        return obj
-
-
-def list_to_kv_list(list1: List[Any]) -> List[Any]:
+def list_to_kv_list(list1: List[Tuple[Optional[int],
+                                      Optional[int]]]) -> \
+        List[Tuple[Optional[int], Optional[int]]]:
     """
     Convert a list containing two tuples into kV we require_ list
     kv_ List shall have the following characteristics:
@@ -26,8 +11,8 @@ def list_to_kv_list(list1: List[Any]) -> List[Any]:
     2. All element key values are not duplicate
     """
 
-    list_key = []  # type: List[tuple[Any,Any]]
-    list_value = []
+    list_key: List[Optional[int]] = []
+    list_value: List[Optional[int]] = []
     new_list = []
     for i in list1:
         if list_key.__contains__(i[0]) is not True:
@@ -43,7 +28,9 @@ def list_to_kv_list(list1: List[Any]) -> List[Any]:
     return new_list
 
 
-def list_merge(lis1: List[Any], lis2: List[Any]) -> List[Any]:
+def list_merge(lis1: List[Tuple[Optional[int], Optional[int]]],
+               lis2: List[Tuple[Optional[int], Optional[int]]]) -> \
+        List[Tuple[Optional[int], Optional[int]]]:
     """
     merge tow list to one according to list length
     """

@@ -1,4 +1,4 @@
-from typing import Any, List
+from typing import List, Tuple, Callable, Optional
 
 
 class BSTNode:
@@ -6,34 +6,36 @@ class BSTNode:
     Define a binary tree node class.
     """
 
-    def __init__(self, key: Any, value: Any) -> None:
-        self.key = key
-        self.data = value
+    def __init__(self, key: Optional[int], value: Optional[int]) -> None:
+        if type(key) is not (int or None) or type(value) is not (int or None):
+            raise TypeError("key and value only can be int or None")
+        self.key: Optional[int] = key
+        self.data: Optional[int] = value
         self.left = None
         self.right = None
 
 
-def judge(obj: Any) -> bool:
-    """this function shows whether it is a number """
-    return type(obj) is int
+class DIterator(object):
 
+    def __init__(self, lst: List[Tuple[Optional[int], Optional[int]]]) -> None:
+        self.__index = -1
+        self.__chunk = lst
 
-def compare(a: Any, b: Any) -> int:
-    """
-    compare whether a larger than b
-    """
-    if type(a) == type(b):
-        if a > b:
-            return 1
-        elif a < b:
-            return 2
-        else:
-            return 3
-    else:
-        if type(a) is int:
-            return 1
-        else:
-            return 2
+    def next(self) -> Tuple[Optional[int], Optional[int]]:
+        """
+        return the next value
+        """
+        self.__index = self.__index + 1
+        if self.__index >= len(self.__chunk):
+            raise StopIteration
+        return self.__chunk[self.__index]
+
+    def hasNext(self) -> bool:
+        """
+        return whether we have a next key
+        :rtype: bool
+        """
+        return self.__index < len(self.__chunk)
 
 
 class BSTDictionary:
@@ -46,46 +48,33 @@ class BSTDictionary:
         init dictionary
         we use a list to implement pseudo iterator
         """
-        self._root: Any = None
-        self._all_key = []  # type: List[tuple[Any,Any]]
+        self._root: Optional[BSTNode] = None
+        self._all_key: List[int] = []
         self._index = -1
 
-    def next(self) -> object:
-        """
-        return the next value
-        """
-        self._index = self._index + 1
-        if self._index >= len(self._all_key):
-            return None
-        return self.get(self._all_key[self._index])
+    def __iter__(self):
+        """ iterator object """
+        return DIterator(self.to_list())
 
-    def hasNext(self) -> bool:
-        """
-        return whether we have a next key
-        :rtype: bool
-        """
-        return self._index < len(self._all_key)
-
-    """ Judge whether the bit is empty"""
     def is_empty(self) -> bool:
+        """ Judge whether the Dictionary is empty"""
         return self._root is None
 
-    """ Find value according to key value"""
-    def get(self, key: Any) -> object:
+    def get(self, key: Optional[int]) -> object:
         """
         get value by key
         """
         cur_node = self._root
         while cur_node:
-            if compare(cur_node.key, key) == 1:
+            if cur_node.key > key:
                 cur_node = cur_node.left
-            elif compare(cur_node.key, key) == 2:
+            elif cur_node.key < key:
                 cur_node = cur_node.right
             else:
                 return cur_node.data
         return None
 
-    def put(self, key: Any, value: Any) -> None:
+    def put(self, key: Optional[int], value: Optional[int]) -> None:
         """
         put V<key,value> to dictionary
         """
@@ -94,12 +83,12 @@ class BSTDictionary:
             self._all_key.append(key)
         cur_node = self._root
         while True:
-            if compare(cur_node.key, key) == 1:
+            if cur_node.key > key:
                 if cur_node.left is None:
                     cur_node.left = BSTNode(key, value)
                     self._all_key.append(key)
                 cur_node = cur_node.left
-            elif compare(cur_node.key, key) == 2:
+            elif cur_node.key < key:
                 if cur_node.right is None:
                     cur_node.right = BSTNode(key, value)
                     self._all_key.append(key)
@@ -108,7 +97,7 @@ class BSTDictionary:
                 cur_node.data = value
                 break
 
-    def remove(self, key: Any) -> None:
+    def remove(self, key: Optional[int]) -> None:
         """
         remove V by key from dictionary
         """
@@ -119,7 +108,7 @@ class BSTDictionary:
         """q is the node we need to find, q is the parent node of q"""
         while q and q.key != key:
             p = q
-            if compare(q.key, key) == 1:
+            if q.key > key:
                 q = q.left
             else:
                 q = q.right
@@ -148,7 +137,7 @@ class BSTDictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node: Any = None) -> Any:
+    def _mid_order(self, node: BSTNode = None) -> List[BSTNode]:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
@@ -164,33 +153,34 @@ class BSTDictionary:
                 yield item
 
     """ Store all the values in the dictionary in the linked list """
-    def to_list(self) -> List[Any]:
+
+    def to_list(self) -> List[Tuple[Optional[int], Optional[int]]]:
         """
         convert dictionary to a list
         :return: the list convert by dictionary
         """
-        res: List[Any] = []
+        res: List[Tuple[Optional[int], Optional[int]]] = []
         if self._root is None:
-            return []
+            return res
         else:
             for node in self._mid_order():
                 res.append((node.key, node.data))
-            return list(res)
+            return res
 
-    def to_key_list(self) -> List[Any]:
+    def to_key_list(self) -> List[Optional[int]]:
         """
         return a list containing all keys
         :return: the list convert by all  key in dictionary
         """
-        res: List[Any] = []
+        res: List[Optional[int]] = []
         if self._root is None:
             return []
         else:
             for node in self._mid_order():
                 res.append(node.key)
-            return list(res)
+            return res
 
-    def from_list(self, e: Any) -> None:
+    def from_list(self, e: List[Tuple[Optional[int],Optional[int]]]) -> None:
         """
         Turn a list containing tuples into a dictionary
         :param e: A list containing tuples
@@ -205,11 +195,11 @@ class BSTDictionary:
         """
         return len(self.to_list())
 
-    def filter(self, f: Any) -> None:
+    def filter(self, f: Callable[[Optional[int]], bool]) -> None:
         """
         :param f: filter function
         """
-        stack: List[Any] = []
+        stack: List[BSTNode] = []
         node = self._root
         result = []
         while node or stack:
@@ -223,19 +213,19 @@ class BSTDictionary:
         for key in result:
             self.remove(key)
 
-    def member(self, key: Any) -> bool:
+    def member(self, key: Optional[int]) -> bool:
         """
         Query whether the key exists in the dictionary
         :param key:
         """
         return self.get(key) is not None
 
-    def map(self, f: Any) -> None:
+    def map(self, f: Callable[[Optional[int]], Optional[int]]) -> None:
         """
         Use function f to process all value in the dictionary
         :param f: function
         """
-        stack: List[Any] = []
+        stack: List[BSTNode] = []
         node = self._root
         while node or stack:
             while node:
@@ -245,16 +235,16 @@ class BSTDictionary:
             node.data = f(node.data)
             node = node.right
 
-    def reduce(self, f: Any, initial_state: Any) -> object:
+    def reduce(self, f: Callable[[int, Optional[int]], int], initial_state: int = 0) -> object:
         """
         Use function f to process all value in the dictionary
         :param initial_state:
         :param f: function
         :return: state
         """
-        state = initial_state
-        stack: List[Any] = []
-        node = self._root
+        state: int = initial_state
+        stack: List[BSTNode] = []
+        node: 'BSTNode' = self._root
         while node or stack:
             while node:
                 stack.append(node)
@@ -272,35 +262,10 @@ class BSTDictionary:
         self._index = -1
         self._all_key = []
 
-    def concat(self, dic: Any) -> Any:
+    def concat(self, dic: 'BSTDictionary') -> 'BSTDictionary':
         """
         Merge two dictionaries
         """
         assert type(dic) is BSTDictionary
-        self_key: List[Any] = []
-        concat_key: List[Any] = []
-        flag = 0
-        while len(self_key) > 0:
-            if self_key.pop() < concat_key.pop():
-                flag = 1
-                break
-        if self.size() > dic.size():
-            ls = dic.to_list()
-            for kv in ls:
-                self.put(kv[0], kv[1])
-            return self
-        elif self.size() < dic.size():
-            ls = self.to_list()
-            for kv in ls:
-                dic.put(kv[0], kv[1])
-            return dic
-        elif self.size() < dic.size() and flag == 1:
-            ls = dic.to_list()
-            for kv in ls:
-                self.put(kv[0], kv[1])
-            return self
-        else:
-            ls = self.to_list()
-            for kv in ls:
-                dic.put(kv[0], kv[1])
-            return dic
+        for i in dic.to_list():
+            self.put(i[0], i[1])
