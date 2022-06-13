@@ -182,7 +182,7 @@ class BSTDictionary:
                 res.append(node.key)
             return res
 
-    def from_list(self, e: List[Tuple[Optional[int],Optional[int]]]) -> None:
+    def from_list(self, e: List[Tuple[Optional[int], Optional[int]]]) -> None:
         """
         Turn a list containing tuples into a dictionary
         :param e: A list containing tuples
@@ -237,7 +237,8 @@ class BSTDictionary:
             node.data = f(node.data)
             node = node.right
 
-    def reduce(self, f: Callable[[int, Optional[int]], int], initial_state: int = 0) -> object:
+    def reduce(self, f: Callable[[int, Optional[int]], int],
+               initial_state: int = 0) -> object:
         """
         Use function f to process all value in the dictionary
         :param initial_state:

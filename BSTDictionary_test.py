@@ -3,7 +3,7 @@ from hypothesis import given
 import hypothesis.strategies as st
 from BSTDictionary import BSTDictionary
 from typing import Optional, List, Tuple
-from libraries import list_to_kv_list,list_merge
+from libraries import list_to_kv_list, list_merge
 
 
 class TestBSTDictionary(unittest.TestCase):
