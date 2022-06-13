@@ -7,7 +7,9 @@ class BSTNode:
     """
 
     def __init__(self, key: Optional[int], value: Optional[int]) -> None:
-        if type(key) is not (int or None) or type(value) is not (int or None):
+        if type(key) is not int and key is not None:
+            raise TypeError("key and value only can be int or None")
+        elif type(value) is not int and value is not None:
             raise TypeError("key and value only can be int or None")
         self.key: Optional[int] = key
         self.data: Optional[int] = value
