@@ -1,4 +1,5 @@
 from typing import List, Tuple, Callable, Optional
+from libraries import compare
 
 
 class BSTNode:
@@ -68,9 +69,9 @@ class BSTDictionary:
         """
         cur_node = self._root
         while cur_node:
-            if cur_node.key > key:
+            if compare(cur_node.key, key) == 1:
                 cur_node = cur_node.left
-            elif cur_node.key < key:
+            elif compare(cur_node.key, key) == 2:
                 cur_node = cur_node.right
             else:
                 return cur_node.data
@@ -85,12 +86,12 @@ class BSTDictionary:
             self._all_key.append(key)
         cur_node = self._root
         while True:
-            if cur_node.key > key:
+            if compare(cur_node.key, key) == 1:
                 if cur_node.left is None:
                     cur_node.left = BSTNode(key, value)
                     self._all_key.append(key)
                 cur_node = cur_node.left
-            elif cur_node.key < key:
+            elif compare(cur_node.key, key) == 2:
                 if cur_node.right is None:
                     cur_node.right = BSTNode(key, value)
                     self._all_key.append(key)
@@ -108,9 +109,9 @@ class BSTDictionary:
         if not q:
             return
         """q is the node we need to find, q is the parent node of q"""
-        while q and q.key != key:
+        while q and compare(q.key, key) != 3:
             p = q
-            if q.key > key:
+            if compare(q.key, key) == 1:
                 q = q.left
             else:
                 q = q.right

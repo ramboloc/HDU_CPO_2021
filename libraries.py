@@ -1,6 +1,22 @@
 from typing import List, Optional, Tuple
 
 
+def compare(a: Optional[int], b: Optional[int]) -> int:
+    if a is not None and b is not None:
+        if a > b:
+            return 1
+        elif a < b:
+            return 2
+        else:
+            return 3
+    elif a is not None and b is None:
+        return 1
+    elif a is None and b is not None:
+        return 2
+    else:
+        return 3
+
+
 def list_to_kv_list(list1: List[Tuple[Optional[int],
                                       Optional[int]]]) -> \
         List[Tuple[Optional[int], Optional[int]]]:
