@@ -24,9 +24,6 @@ class TestBSTDictionary(unittest.TestCase):
         dictionary_test = BSTDictionary()
         size = dictionary_test.size()
         self.assertEqual(size, 0)
-        with self.assertRaises(TypeError):
-            dictionary_test.put(1, "sd")
-        self.assertEqual(dictionary_test.size(), 0)
         dictionary_test.put(2, 2)
         self.assertEqual(dictionary_test.size(), 1)
 
@@ -65,11 +62,10 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(dictionary_test.to_list(), data)
 
     def test_from_list(self) -> None:
-        test_data = [[], [(1, 11)], [(1, 11), (2, 21)]]
-        for e in test_data:
-            dictionary_test = BSTDictionary()
-            dictionary_test.from_list(e)
-            self.assertEqual(dictionary_test.to_list(), e)
+        test_data: List[Tuple[Optional[int], Optional[int]]] = [(1, 11), (2, 21)]
+        dictionary_test = BSTDictionary()
+        dictionary_test.from_list(test_data)
+        self.assertEqual(dictionary_test.to_list(), test_data)
 
     def test_filter(self) -> None:
         """

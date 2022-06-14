@@ -1,4 +1,4 @@
-from typing import List, Tuple, Callable, Optional
+from typing import List, Tuple, Callable, Optional, Generator
 from libraries import compare
 
 
@@ -138,13 +138,15 @@ class BSTDictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node: BSTNode = None) -> List[BSTNode]:
+    def _mid_order(self, node: BSTNode = None) -> Generator:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
 
         if node is None:
             node = self._root
+        if not isinstance(self._root, BSTNode):
+            return
         if node.left is not None:
             for item in self._mid_order(node.left):
                 yield item
