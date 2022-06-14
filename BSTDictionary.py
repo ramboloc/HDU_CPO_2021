@@ -138,22 +138,23 @@ class BSTDictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node: BSTNode = None) -> Generator:
+    def _mid_order(self, node: BSTNode = None) -> List[BSTNode]:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
-
+        res: List[BSTNode] = []
         if node is None:
             node = self._root
         if not isinstance(self._root, BSTNode):
-            return
+            return res
         if node.left is not None:
             for item in self._mid_order(node.left):
-                yield item
-        yield node
+                res.append(item)
+        res.append(node)
         if node.right is not None:
             for item in self._mid_order(node.right):
-                yield item
+                res.append(item)
+        return res
 
     """ Store all the values in the dictionary in the linked list """
 
