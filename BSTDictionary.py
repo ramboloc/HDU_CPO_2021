@@ -145,7 +145,7 @@ class BSTDictionary:
         res: List[BSTNode] = []
         if node is None:
             node = self._root
-        if not isinstance(self._root, BSTNode):
+        if not isinstance(node, BSTNode):
             return res
         if node.left is not None:
             for item in self._mid_order(node.left):
