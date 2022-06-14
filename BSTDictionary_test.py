@@ -62,7 +62,8 @@ class TestBSTDictionary(unittest.TestCase):
         self.assertEqual(dictionary_test.to_list(), data)
 
     def test_from_list(self) -> None:
-        test_data: List[Tuple[Optional[int], Optional[int]]] = [(1, 11), (2, 21)]
+        test_data: List[Tuple[Optional[int], Optional[int]]] =\
+            [(1, 11), (2, 21)]
         dictionary_test = BSTDictionary()
         dictionary_test.from_list(test_data)
         self.assertEqual(dictionary_test.to_list(), test_data)
