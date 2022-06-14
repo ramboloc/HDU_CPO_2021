@@ -54,7 +54,7 @@ class BSTDictionary:
         self._root: Optional[BSTNode] = None
         self._index = -1
 
-    def __iter__(self):
+    def __iter__(self) -> DIterator:
         """ iterator object """
         return DIterator(self.to_list())
 
@@ -138,7 +138,7 @@ class BSTDictionary:
         else:
             p.right = q.left
 
-    def _mid_order(self, node: BSTNode = None) -> List[BSTNode]:
+    def _mid_order(self, node: Optional[BSTNode] = None) -> List[BSTNode]:
         """
         Middle order traversal binary tree to get V<key,value> for each node
         """
