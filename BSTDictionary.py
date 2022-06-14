@@ -1,3 +1,4 @@
+from builtins import _NotImplementedType
 from typing import List, Tuple, Callable, Optional
 from libraries import compare
 
@@ -76,14 +77,16 @@ class BSTDictionary:
                 return cur_node.data
         return None
 
-    def put(self, key: Optional[int], value: Optional[int]) -> None:
+    def put(self, key: Optional[int], value: Optional[int]) -> Optional[_NotImplementedType]:
         """
         put V<key,value> to dictionary
         """
         if self.is_empty():
             self._root = BSTNode(key, value)
             return
-        cur_node: BSTNode = self._root
+        if not isinstance(self._root, BSTNode):
+            return NotImplemented
+        cur_node = self._root
         while True:
             if compare(cur_node.key, key) == 1:
                 if cur_node.left is None:
