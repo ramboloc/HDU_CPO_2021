@@ -1,4 +1,4 @@
-from typing import List, Tuple, Callable, Optional, Generator
+from typing import List, Tuple, Callable, Optional
 from libraries import compare
 
 
